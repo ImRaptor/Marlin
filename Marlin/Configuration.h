@@ -22,7 +22,7 @@
 #pragma once
 
 //#define CONFIG_EXAMPLES_DIR "Geeetech/A10M"
-//#define CONVERT_TO_CYCLOPS //Disable mixing (8 virtual extruders) & use single nozzle control system (2 physical extruders)
+#define CONVERT_TO_CYCLOPS //Disable mixing (8 virtual extruders) & use single nozzle control system (2 physical extruders)
 //#define CHIMERA // 2 in 2 out mod
 
 /**
@@ -79,7 +79,7 @@
  */
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
-//#define SHOW_BOOTSCREEN
+#define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
 //#define SHOW_CUSTOM_BOOTSCREEN
@@ -163,8 +163,8 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  A4988
-#define Y_DRIVER_TYPE  A4988
+#define X_DRIVER_TYPE  TMC2208_STANDALONE
+#define Y_DRIVER_TYPE  TMC2208_STANDALONE
 #define Z_DRIVER_TYPE  A4988
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
@@ -177,8 +177,8 @@
 //#define U_DRIVER_TYPE  A4988
 //#define V_DRIVER_TYPE  A4988
 //#define W_DRIVER_TYPE  A4988
-#define E0_DRIVER_TYPE A4988
-#define E1_DRIVER_TYPE A4988
+#define E0_DRIVER_TYPE TMC2208_STANDALONE
+#define E1_DRIVER_TYPE TMC2208_STANDALONE
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
@@ -1176,7 +1176,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 430 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 79.6, 79.76, 409.95, 103 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1499,7 +1499,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 30, 5, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -2222,6 +2222,12 @@
 #define PREHEAT_1_TEMP_CHAMBER  0
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
+#define PREHEAT_2_LABEL       "PETG"
+#define PREHEAT_2_TEMP_HOTEND 215
+#define PREHEAT_2_TEMP_BED     70
+#define PREHEAT_2_TEMP_CHAMBER  0
+#define PREHEAT_2_FAN_SPEED     0
+
 /**
  * Nozzle Park
  *
@@ -2455,7 +2461,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#define SDSUPPORT // i use octoprint so no need for this
+// #define SDSUPPORT // i use octoprint so no need for this
 
 /**
  * SD CARD: ENABLE CRC
