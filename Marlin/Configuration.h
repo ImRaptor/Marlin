@@ -686,9 +686,12 @@
     #define DEFAULT_Ki_LIST {   3.83,   3.83 }
     #define DEFAULT_Kd_LIST {  72.28,  72.28 }
   #else
-    #define  DEFAULT_Kp 33.29
-    #define  DEFAULT_Ki 3.83
-    #define  DEFAULT_Kd 72.28
+    //#define  DEFAULT_Kp 33.29
+    //#define  DEFAULT_Ki 3.83
+    //#define  DEFAULT_Kd 72.28
+    #define DEFAULT_Kp 12.35
+    #define DEFAULT_Ki 0.86
+    #define DEFAULT_Kd 44.27
   #endif
 #endif
 
@@ -1499,7 +1502,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 30, 5, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 30, -5, -3.099 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1658,8 +1661,8 @@
 // @section motion
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
+#define INVERT_X_DIR false
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
@@ -1671,8 +1674,8 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
-#define INVERT_E1_DIR false  // unused, the A10 only has one extruder by default
+#define INVERT_E0_DIR true
+#define INVERT_E1_DIR true   // unused, the A10 only has one extruder by default
 #define INVERT_E2_DIR false  // unused, the A10 only has one extruder by default
 #define INVERT_E3_DIR false  // unused, the A10 only has one extruder by default
 #define INVERT_E4_DIR false  // unused, the A10 only has one extruder by default
